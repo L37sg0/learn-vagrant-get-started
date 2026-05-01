@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
 
   # Forward web port to host so can test via browser
   config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 8081, host: 8081
 
   # Start Terramino (can be rerun with vagrant provision --provision-with start-terramino)
   # use run: "never", and start it after build, so be sure provision file was fully executed and all directories
