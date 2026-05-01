@@ -5,6 +5,9 @@ Vagrant.configure("2") do |config|
   # Install Docker and dependencies
   config.vm.provision "shell", name: "install-dependencies", path: "install-dependencies.sh"
 
+  # Forward web port to host so can test via browser
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+
   # Start Terramino (can be rerun with vagrant provision --provision-with start-terramino)
   # use run: "never", and start it after build, so be sure provision file was fully executed and all directories
   # were created
